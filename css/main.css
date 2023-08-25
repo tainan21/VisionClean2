@@ -25,6 +25,16 @@ html {
   scroll-margin-top: 2rem;
 }
 
+.buttonservices{
+  min-height: 400px;
+  border-radius: 10px!important;
+  display: flex;
+  justify-content: center;
+  min-height: 10vh;
+  align-items: center;
+  flex-direction: column;
+}
+
 /* Header */
 .site-title {
   font-size: 1.5rem;
