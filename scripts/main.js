@@ -68,27 +68,29 @@
      })
     )
   }))
+document.querySelectorAll(".bp-gallery a").forEach(function(e) {
+  var caption = e.querySelector('figcaption');
+  var img = e.querySelector('img');
 
-  /**
-   * Big Picture Popup for Photo Gallary
-   */
-   document.querySelectorAll(".bp-gallery a").forEach((function(e) {
-    var caption = e.querySelector('figcaption')
-    var img = e.querySelector('img')
-    // set the link present on the item to the caption in full view
-    img.dataset.caption = '<a class="link-light" target="_blank" href="' + e.href + '">' + caption.innerHTML + '</a>';
-    window.console.log(caption, img)
-     e.addEventListener("click", (function(t){
-       t.preventDefault();
-       BigPicture({
-        el: t.target,
-        gallery: '.bp-gallery',
-      })
-     })
-    )
-  }))
+  // set the link present on the item to the caption in full view
+  img.dataset.caption = '<a class="link-light" target="_blank" href="' + e.href + '">' + caption.innerHTML + '</a>';
+  window.console.log(caption, img);
 
-  // Add your javascript here
+  e.addEventListener("click", function(t) {
+    t.preventDefault();
+    BigPicture({
+      el: t.target,
+      gallery: '.bp-gallery',
+    });
+  });
+});
 
+// Função para interromper o loop do carrossel
+function interromperLoopDoCarrossel() {
+  BigPicture.close(); // Fecha a imagem atual e interrompe o loop do carrossel
+}
+
+// Chamada da função para interromper o loop após um período específico (por exemplo, após 5 segundos)
+setTimeout(interromperLoopDoCarrossel, 5000); // Ajuste o tempo conforme necessário
 
 })();
